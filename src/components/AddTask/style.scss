@@ -1,0 +1,26 @@
+.control {
+    margin-bottom: 20px;
+
+
+  &_header {
+    height: 80px;
+    color: cornflowerblue;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_btn {
+    margin: 5px;
+    padding: 15px;
+    background-color: aqua;
+    border-radius: 5px;
+  }
+
+  &_input {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
