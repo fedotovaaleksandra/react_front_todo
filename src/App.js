@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import ToDoList from "./components/ToDoList/ToDoList";
-import "./styles/App.scss";
+import "./components/styles/App.scss";
 
 const App = () => {
   return (

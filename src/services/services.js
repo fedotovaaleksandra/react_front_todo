@@ -1,12 +1,12 @@
-import host from "../../constants";
-import axios from axios;
+import host from "constants";
+import axios from "axios";
 
 const AllTasksService = async () => {
   const res = await axios.get(host);
   return res;
 };
 
-const addNewService = async (text) => {
+const addNewTaskService = async (text) => {
   const answer = await axios.post(host, {
     text,
   });
@@ -34,15 +34,15 @@ const onChangeCheckBoxService = async (id, tasks) => {
 };
 
 const saveToDoService = async (id, text) => {
-  const response = await axios.patch(`${host}/check/${id}`, {
+  const res = await axios.patch(`${host}/text/${id}`, {
     text,
   });
-  return response;
+  return res;
 };
 
 export {
   AllTasksService,
-  addNewService,
+  addNewTaskService,
   deleteToDoService,
   onChangeCheckBoxService,
   saveToDoService,

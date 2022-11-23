@@ -5,9 +5,9 @@ import {
   onChangeCheckBoxService,
   addNewTaskService,
   saveToDoService
-} from "../services/services";
-import AddTask from "../AddTask/AddTask";
-import Tasks from "../Tasks/Tasks";
+} from "services/services";
+import AddTask from "components/AddTask/AddTask";
+import Tasks from "components/Tasks/Tasks";
 import "./style.scss";
 
 const showError = (error) => {
@@ -32,7 +32,8 @@ const ToDoList = () => {
   const allTasks = async () => {
     try {
       const res = await AllTasksService();
-      setTasks(res.data.tasks);
+      const result = await res.data;
+      setTasks(result);
     } catch (error) {
       showError("not be empty")
     }
@@ -86,7 +87,7 @@ const ToDoList = () => {
     setText(text);
   };
 
-  const saveTask = async (id, newTask) => {
+  const saveTask = async (id, newText) => {
     try {
       
       if (newText.trim() === "") {
@@ -112,17 +113,19 @@ const ToDoList = () => {
   return (
     <div className="App_todolist">
       <AddTask text={text} 
-      addTask={addTask}
-      deleteTask={deleteTask}
-      showError={showError} />
+        addTask={addTask}
+        //deleteTask={deleteTask}
+        showError={showError} 
+      />
       <Tasks tasks={tasks}
-      edited={edited}
-      text={text}
-      deleteOne={deleteOne}
-      onCheckboxTask={onCheckBoxTask}
-      editToDo={editToDo}
-      saveTask={saveTask}
-      showError={showError}/>
+        edited={edited}
+        text={text}
+        deleteOne={deleteOne}
+        onCheckboxTask={onCheckBoxTask}
+        editToDo={editToDo}
+        saveTask={saveTask}
+        showError={showError}
+      />
     </div>
   );
 };

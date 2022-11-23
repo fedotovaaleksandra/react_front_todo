@@ -23,17 +23,17 @@ const Tasks = ({
   return (
     <div className="App_tasks">
       {tasks.map((task) => (
-        <div className="task">
+        <div className="task" key={task._id}>
           {edited === task._id ? (
             <TaskEdit
             text={task.text}
             saveTask={saveTask}
             deleteToDo={deleteToDo}
             id={task._id}
-          />
+          /> 
         ) : (
           <div>
-            <input type="text" 
+            <input type="checkbox" 
             value={task.isCheck}
             onChange={() => onChangeCheckBox(task._id)} 
             checked={task.isCheck}
